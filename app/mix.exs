@@ -22,13 +22,10 @@ defmodule OcppGateway.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:cowboy, "~> 2.9"},
-      {:plug, "~> 1.13"},
-      {:plug_cowboy, "~> 2.5"},
-      {:jason, "~> 1.3"},
-      {:phoenix_pubsub, "~> 2.1"},
-      {:websockex, "~> 0.4.3"},
-      {:telemetry, "~> 1.0"}
+      {:bandit, "~> 1.0"},
+      {:gun, "~> 2.0"},
+      {:mint_web_socket, "~> 1.0"},
+      {:websock_adapter, "~> 0.5"}
     ]
   end
 end

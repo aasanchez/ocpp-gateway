@@ -4,10 +4,9 @@ defmodule OcppGateway.Router do
   plug :match
   plug :dispatch
 
-  get "/ocpp/:charge_point_id" do
-    conn = fetch_query_params(conn)
-    opts = %{}
-    :cowboy_websocket.upgrade(conn, OcppGateway.ChargePoint.WebSocketHandler, opts)
+  match "/ws" do
+    conn
+    |> WebSockAdapter.upgrade(OcppGateway.WSHandler, %{csms_url: "ws://localhost:9000"}, [])
   end
 
   match _ do

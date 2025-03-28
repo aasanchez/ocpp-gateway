@@ -1,38 +1,23 @@
-# Created by https://www.toptal.com/developers/gitignore/api/elixir,erlang
-# Edit at https://www.toptal.com/developers/gitignore?templates=elixir,erlang
+# The directory Mix will write compiled artifacts to.
+/_build/
 
-### Elixir ###
-/_build
-/cover
-/deps
-/doc
-/.fetch
+# If you run "mix test --cover", coverage assets end up here.
+/cover/
+
+# The directory Mix downloads your dependencies sources to.
+/deps/
+
+# Where third-party dependencies like ExDoc output generated docs.
+/doc/
+
+# If the VM crashes, it generates a dump, let's ignore it too.
 erl_crash.dump
+
+# Also ignore archive artifacts (built via "mix archive.build").
 *.ez
-*.beam
-/config/*.secret.exs
-.elixir_ls/
 
-### Elixir Patch ###
+# Ignore package tarball (built via "mix hex.build").
+ocpp_gateway-*.tar
 
-### Erlang ###
-.eunit
-*.o
-*.plt
-.concrete/DEV_MODE
-
-# rebar 2.x
-.rebar
-rel/example_project
-ebin/*.beam
-deps
-
-# rebar 3
-.rebar3
-_build/
-_checkouts/
-
-### Erlang Patch ###
-rebar3.crashdump
-
-# End of https://www.toptal.com/developers/gitignore/api/elixir,erlang
+# Temporary files, for example, from tests.
+/tmp/

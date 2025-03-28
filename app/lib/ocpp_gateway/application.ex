@@ -8,20 +8,12 @@ defmodule OcppGateway.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      OcppGateway.ChargePointRegistry,
-      {Plug.Cowboy,
-       scheme: :http,
-       plug: OcppGateway.Router,
-       options: [port: application_port()]}
+      {Bandit, plug: OcppGateway.Router, scheme: :http, port: 4000}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: OcppGateway.Supervisor]
     Supervisor.start_link(children, opts)
-  end
-
-  defp application_port do
-    Application.get_env(:ocpp_gateway, :port, 4000)
   end
 end
